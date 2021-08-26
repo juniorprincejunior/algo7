@@ -1,0 +1,30 @@
+PROCEDURE tri(tab[])
+VAR
+    n := tab.lengh;
+    min,y,w,i,j : INTEGER;
+BEGIN
+    FOR i FROM 0 TO n - 2 STEP 1  DO
+        min = i
+        FOR j FROM i + 1 TO n - 1 STEP 1 DO
+            IF (tab[j]<tab[i]) THEN
+                min = j;
+            END_IF
+        END_FOR
+        IF (min != i) THEN
+            y = tab[i]
+            w = tab[min]
+            tab[min]= y
+            tab[i] = w
+        END_IF
+    END_FOR
+END
+
+ALGORITHM tri_selecion
+VAR
+    tab : ARRAY_OF INTEGER[];
+BEGIN
+    WHILE (n< tab.lengh) DO
+    Read(tab[n])
+    END_WHILE
+    tri(tab)
+END
